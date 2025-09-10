@@ -1,0 +1,540 @@
+/* リセットCSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 px;
+}
+
+/* ヒーローセクション */
+.hero {
+    background: linear-gradient(135deg, #4bb9a8 0%, #3a9d8f 100%);
+    color: white;
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+.header-top {
+    background-color: white;
+    padding: 10px 0; /* この値を調整して、白い背景全体の高さを決めます。例: 40px 0; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    /* ここは削除またはコメントアウト */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+.header-top .container {
+    display: flex; /* Flexboxを有効にする */
+    align-items: center; /* 垂直方向の中央揃え */
+    justify-content: center; /* 水平方向の中央揃え */
+    height: 100%; /* 親要素のheader-topの高さに合わせる */
+}
+
+.logo {
+    margin: 10px;
+}
+
+.logo-img {
+    height: 50px;
+    filter: none;
+}
+
+/* ヒーローセクションのpadding-topは、header-topの最終的な高さに合わせて調整してください */
+.hero {
+    padding-top: 120px; /* 例: header-topのpaddingが上下20pxずつでロゴの高さが50pxの場合、20+50+20 = 90px + α */
+}
+
+.logo-img {
+    height: 30px; /* ロゴのサイズ調整 */
+    filter: none; /* ロゴの色を元の色に戻す */
+}
+
+/* ヒーローセクションのpadding-topを調整して、ヘッダーの高さ分下げる */
+.hero {
+    padding-top: 140px; /* ヘッダーの高さに合わせて調整 */
+}
+
+.logo-img {
+    height: 60px;
+    filter: brightness(0) invert(1);
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.highlight {
+    background: linear-gradient(45deg, #fff, #f0f9ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.hero-image {
+    margin-top: 40px;
+}
+
+.feature-img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transform: perspective(1000px) rotateX(5deg);
+    transition: transform 0.3s ease;
+}
+
+.feature-img:hover {
+    transform: perspective(1000px) rotateX(0deg) scale(1.02);
+}
+
+/* 課題解決セクション */
+.problem-solution {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.problems {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.problem-item {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.problem-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.problem-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.problem-item p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.solution-arrow {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.arrow {
+    font-size: 3rem;
+    color: #4bb9a8;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.solution-text {
+    font-size: 1.5rem;
+    color: #4bb9a8;
+    font-weight: 700;
+}
+
+/* 主要機能セクション */
+.features {
+    padding: 80px 0;
+    background: white;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.feature-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid #f0f0f0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(75, 185, 168, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.feature-card:hover::before {
+    left: 100%;
+}
+
+.feature-card:hover {
+    border-color: #4bb9a8;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(75, 185, 168, 0.2);
+}
+
+.feature-icon {
+    margin-bottom: 25px;
+    display: inline-block;
+    padding: 20px;
+    background: rgba(75, 185, 168, 0.1);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* 導入効果セクション */
+.benefits {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.benefit-item {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.benefit-item:hover {
+    transform: translateY(-10px);
+}
+
+.benefit-number {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background: #4bb9a8;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 60px;
+    margin-bottom: 25px;
+}
+
+.benefit-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.benefit-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* CTAセクション */
+.cta {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #4bb9a8 0%, #3a9d8f 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+    opacity: 0.3;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.cta-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 18px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 200px;
+}
+
+.btn-primary {
+    background: white;
+    color: #4bb9a8;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover {
+    background: #f8f9fa;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #4bb9a8;
+    transform: translateY(-3px);
+}
+
+/* フッター */
+.footer {
+    padding: 40px 0;
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo .logo-img {
+    height: 40px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-text {
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .cta-title {
+        font-size: 1.8rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .features-grid,
+    .benefits-grid,
+    .problems {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 60px 0;
+    }
+    
+    .problem-solution,
+    .features,
+    .benefits {
+        padding: 60px 0;
+    }
+    
+    .cta {
+        padding: 80px 0;
+    }
+    
+    .feature-card,
+    .benefit-item,
+    .problem-item {
+        padding: 25px;
+    }
+}
+
+/* アニメーション */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-card,
+.benefit-item,
+.problem-item {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.feature-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.feature-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* スクロール時のアニメーション */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.scroll-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
